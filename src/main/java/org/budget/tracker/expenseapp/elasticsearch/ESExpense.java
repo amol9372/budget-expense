@@ -1,5 +1,7 @@
 package org.budget.tracker.expenseapp.elasticsearch;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 import org.budget.tracker.expenseapp.config.LocalDateTimeConverter;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -24,13 +26,9 @@ public class ESExpense {
 
     private Double cost;
 
-    private Integer groupId;
-
     private String paidBy;
 
     private String createdBy;
-
-    private String stakeholders;
 
     @Field(type = FieldType.Date)
     @ValueConverter(LocalDateTimeConverter.class)
@@ -72,14 +70,6 @@ public class ESExpense {
         this.cost = cost;
     }
 
-    public Integer getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
-    }
-
     public String getPaidBy() {
         return paidBy;
     }
@@ -94,14 +84,6 @@ public class ESExpense {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
-    }
-
-    public String getStakeholders() {
-        return stakeholders;
-    }
-
-    public void setStakeholders(String stakeholders) {
-        this.stakeholders = stakeholders;
     }
 
     public LocalDateTime getCreatedOn() {

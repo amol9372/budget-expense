@@ -1,7 +1,8 @@
 package org.budget.tracker.expenseapp.rest.controller;
 
-import org.budget.tracker.expenseapp.elasticsearch.ESExpense;
+import org.budget.tracker.expenseapp.app.Expense;
 import org.budget.tracker.expenseapp.rest.request.CreateExpenseRequest;
+import org.budget.tracker.expenseapp.rest.request.GetExpensesRequest;
 import org.budget.tracker.expenseapp.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,27 +13,26 @@ import java.util.List;
 @RequestMapping("expense")
 public class ExpenseController {
 
-    @Autowired
-    ExpenseService expenseService;
+  @Autowired ExpenseService expenseService;
 
-    @GetMapping("health-check")
-    public String healthCheck() {
-        return "This controller is working";
-    }
+  @GetMapping("health-check")
+  public String healthCheck() {
+    return "This controller is working";
+  }
 
-    @PostMapping
-    public void createExpense(@RequestBody CreateExpenseRequest request) {
-        expenseService.createExpense(request);
-    }
+  @PostMapping
+  public void createExpense(@RequestBody CreateExpenseRequest request) {
+    expenseService.createExpense(request);
+  }
 
-    @GetMapping
-    public List<ESExpense> getExpenses(){
-        return expenseService.getExpenses();
-    }
+  @GetMapping
+  public List<Expense> getAllExpenses() {
 
-//    @PostMapping
-//    public List<Expense> getExpenses(@RequestBody GetExpensesRequest request){
-//      return null;
-//    }
+    return expenseService.getExpenses();
+  }
 
+  @PostMapping("search")
+  public List<Expense> getExpenses(@RequestBody GetExpensesRequest request) {
+    return expenseService.getExpensesWithFilter(request);
+  }
 }

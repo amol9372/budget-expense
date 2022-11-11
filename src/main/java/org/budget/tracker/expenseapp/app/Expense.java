@@ -3,15 +3,16 @@ package org.budget.tracker.expenseapp.app;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Expense {
+public class Expense extends BaseAppEntity {
 
     private String name;
     private BigDecimal cost;
     private String category;
     private String paidBy;
-    private String group;
     private String createdBy;
     private LocalDateTime createdOn;
+    private LocalDateTime updatedOn;
+    private Integer budgetId;
 
     public String getName() {
         return name;
@@ -45,14 +46,6 @@ public class Expense {
         this.paidBy = paidBy;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
     public String getCreatedBy() {
         return createdBy;
     }
@@ -67,5 +60,21 @@ public class Expense {
 
     public void setCreatedOn(LocalDateTime createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public Integer getBudgetId() {
+        return budgetId;
+    }
+
+    public void setBudgetId(Integer budgetId) {
+        this.budgetId = budgetId;
+    }
+
+    public LocalDateTime getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(LocalDateTime updatedOn) {
+        this.updatedOn = updatedOn;
     }
 }

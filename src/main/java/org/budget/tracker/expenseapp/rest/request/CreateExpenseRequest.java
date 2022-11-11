@@ -1,13 +1,18 @@
 package org.budget.tracker.expenseapp.rest.request;
 
+import java.math.BigDecimal;
+
 public class CreateExpenseRequest {
 
     private String name;
-    private Double cost;
+    private BigDecimal cost;
     private String category;
+    private String subCategory;
     private String group;
     private String paidBy;     // email
     private String createdBy;  // email
+
+    private Integer budgetId;
 
     public String getName() {
         return name;
@@ -17,11 +22,11 @@ public class CreateExpenseRequest {
         this.name = name;
     }
 
-    public Double getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(Double cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 
@@ -55,5 +60,21 @@ public class CreateExpenseRequest {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public Integer getBudgetId() {
+        return budgetId;
+    }
+
+    public void setBudgetId(Integer budgetId) {
+        this.budgetId = budgetId;
+    }
+
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
     }
 }

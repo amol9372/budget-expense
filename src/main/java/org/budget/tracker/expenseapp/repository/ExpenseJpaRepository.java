@@ -9,6 +9,4 @@ import java.util.List;
 @Repository
 public interface ExpenseJpaRepository extends JpaRepository<JExpense, Integer> {
 
-      List<JExpense> findByGroupId(Integer groupId);
-
 }

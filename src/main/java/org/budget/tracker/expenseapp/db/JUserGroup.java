@@ -3,7 +3,7 @@ package org.budget.tracker.expenseapp.db;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_group", schema = "budget_tracker")
+@Table(name = "user_group")
 public class JUserGroup {
 
     @Id

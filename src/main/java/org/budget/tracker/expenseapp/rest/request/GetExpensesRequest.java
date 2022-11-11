@@ -6,6 +6,7 @@ import java.util.List;
 
 public class GetExpensesRequest {
 
+    private Integer budgetId;
     private List<String> fields;
     private String searchQuery;
     private String sortBy;
@@ -41,5 +42,13 @@ public class GetExpensesRequest {
 
     public void setOrder(SortOrder order) {
         this.order = order;
+    }
+
+    public Integer getBudgetId() {
+        return budgetId;
+    }
+
+    public void setBudgetId(Integer budgetId) {
+        this.budgetId = budgetId;
     }
 }

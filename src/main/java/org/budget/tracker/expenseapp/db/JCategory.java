@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "category", schema = "budget_tracker")
+@Table(name = "category")
 public class JCategory {
 
     @Id

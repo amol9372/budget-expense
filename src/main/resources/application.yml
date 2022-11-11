@@ -1,19 +1,32 @@
 server:
-  port: 8082
+  port: 8083
 
 spring:
+  #  datasource:
+  #    url: jdbc:h2:mem:mydb
+  #    username: sa
+  #    password: password
+  #    driverClassName: org.h2.Driver
+  #    embedded-database-connection:
+  #  jpa:
+  #    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  #    defer-datasource-initialization: true
+  #    show-sql: true
+  #    hibernate:
+  #      ddl-auto: none
+
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
-    embedded-database-connection:
-  jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
-    show-sql: true
-    hibernate:
-      ddl-auto: none
+    driver-class-name: org.postgresql.Driver
+    url: ${POSTGRES_URL}
+    hikari:
+      schema: budget_tracker
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
 
   h2:
     console:
@@ -27,7 +40,7 @@ spring:
 
 logging:
   level:
-    root: debug
+    root: info
 
 elastic:
   url: ${ELASTIC_URL}
