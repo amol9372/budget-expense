@@ -1,7 +1,5 @@
 package org.budget.tracker.expenseapp.elasticsearch;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 import org.budget.tracker.expenseapp.config.LocalDateTimeConverter;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -9,7 +7,6 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.ValueConverter;
 
 import javax.persistence.Id;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Document(indexName = "my_index")
@@ -23,6 +20,9 @@ public class ESExpense {
 
     @Field(type = FieldType.Keyword)
     private String category;
+
+    @Field
+    private String subCategory;
 
     private Double cost;
 
@@ -100,5 +100,13 @@ public class ESExpense {
 
     public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
+    }
+
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
     }
 }

@@ -52,12 +52,12 @@ public class ExpenseServiceImpl implements ExpenseService {
     //    if (StringUtils.hasLength(request.getGroup())) {
     //      jGroup = groupJpaRepository.findByName(request.getGroup());
     //    }
-
+    logger.info("Creating Expense in DB ::: {}", request.toString());
     JExpense expense = ExpenseBuilder.with(request);
     JExpense savedExpense = expenseJpaRepository.save(expense);
 
     // push data in kafka -> elasticsearch
-    logger.info("Publishing data on Kafka topic");
+    logger.info("Publishing expense data on Kafka topic ::: {}", request.toString());
     try {
       ProducerRecord<String, Object> record =
           new ProducerRecord<>("my-topic", String.valueOf(savedExpense.getId()), savedExpense);
@@ -115,7 +115,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery("budgetId", request.getBudgetId());
 
-    SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder().query(queryBuilder);
+    SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder().query(queryBuilder).size(30);
     searchRequest.source(searchSourceBuilder);
 
     try {

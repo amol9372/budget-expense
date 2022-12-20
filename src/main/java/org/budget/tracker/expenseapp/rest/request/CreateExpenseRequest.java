@@ -7,6 +7,8 @@ public class CreateExpenseRequest {
     private String name;
     private BigDecimal cost;
     private String category;
+
+    private Integer categoryId;
     private String subCategory;
     private String group;
     private String paidBy;     // email
@@ -76,5 +78,13 @@ public class CreateExpenseRequest {
 
     public void setSubCategory(String subCategory) {
         this.subCategory = subCategory;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 }

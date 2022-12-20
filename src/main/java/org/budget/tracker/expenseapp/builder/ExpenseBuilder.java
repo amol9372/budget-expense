@@ -16,6 +16,8 @@ public class ExpenseBuilder {
     // cost should not be 0
     expense.setCost(request.getCost().doubleValue());
     expense.setCategory(request.getCategory());
+    expense.setCategoryId(request.getCategoryId());
+    expense.setSubCategory(request.getSubCategory());
     expense.setPaidBy(request.getPaidBy());
     expense.setCreatedBy(request.getCreatedBy());
     expense.setCreatedOn(LocalDateTime.now());

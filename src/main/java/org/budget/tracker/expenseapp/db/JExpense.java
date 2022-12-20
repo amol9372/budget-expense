@@ -25,6 +25,12 @@ public class JExpense {
   @Column(name = "category")
   private String category;
 
+  @Column(name = "category_id")
+  private Integer categoryId;
+
+  @Column(name = "sub_category")
+  private String subCategory;
+
   @Column(name = "created_by")
   private String createdBy;
 
@@ -116,11 +122,19 @@ public class JExpense {
     this.budgetId = budgetId;
   }
 
-//  public void setUserDefined(boolean userDefined) {
-//    this.userDefined = userDefined;
-//  }
-//
-//  public boolean isUserDefined() {
-//    return userDefined;
-//  }
+  public String getSubCategory() {
+    return subCategory;
+  }
+
+  public void setSubCategory(String subCategory) {
+    this.subCategory = subCategory;
+  }
+
+  public Integer getCategoryId() {
+    return categoryId;
+  }
+
+  public void setCategoryId(Integer categoryId) {
+    this.categoryId = categoryId;
+  }
 }

@@ -8,6 +8,8 @@ public class Expense extends BaseAppEntity {
     private String name;
     private BigDecimal cost;
     private String category;
+    private String subCategory;
+    private String categoryId;
     private String paidBy;
     private String createdBy;
     private LocalDateTime createdOn;
@@ -76,5 +78,21 @@ public class Expense extends BaseAppEntity {
 
     public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
+    }
+
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 }
