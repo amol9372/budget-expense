@@ -49,3 +49,5 @@ elastic:
 
 kafka:
   bootstrap: ${KAFKA_BOOTSTRAP_SERVER}
+  user: ${KAFKA_USER}
+  password: ${KAFKA_PASSWORD}
